@@ -183,8 +183,44 @@ ul { margin: 0; padding: 0; }
     radial-gradient(1000px 460px at 82% 108%, rgba(206,0,88,.34), transparent 70%);
 }
 .hero-inner { position: relative; padding-block: clamp(88px, 13vw, 148px); color: #fff; }
+/* Brand lockup: mark + name + affiliation, sized to be the first thing read.
+   The rule beneath separates it from the headline so the two large blocks do
+   not read as one paragraph. */
+.hero-brand {
+  display: flex; align-items: center; gap: clamp(14px, 1.8vw, 20px);
+  margin-bottom: clamp(26px, 3.4vw, 38px);
+  padding-bottom: clamp(22px, 2.8vw, 30px);
+  border-bottom: 1px solid rgba(255,255,255,.16);
+}
+.hero-mark {
+  width: clamp(46px, 6.4vw, 66px); height: clamp(46px, 6.4vw, 66px);
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,.28));
+}
+.hero-brand-text { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.hero-brand-name {
+  font-size: clamp(30px, 5vw, 52px); font-weight: 720; letter-spacing: -.028em;
+  line-height: 1.02; color: #fff;
+  text-shadow: 0 2px 18px rgba(0,0,0,.3);
+}
+.hero-brand-sub {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: clamp(11px, 1.15vw, 12.5px); font-weight: 650;
+  letter-spacing: .13em; text-transform: uppercase; color: #9fc6f4;
+}
+.hero-brand-sub::before {
+  content: ""; width: 22px; height: 2px; background: var(--magenta);
+  border-radius: 2px; flex-shrink: 0;
+}
+@media (max-width: 520px) {
+  .hero-brand { gap: 13px; }
+  .hero-brand-sub { letter-spacing: .1em; }
+}
+
+/* Slightly smaller than before: the lockup above now shares the top of the
+   hero, and two competing display sizes flatten the hierarchy. */
 .hero h1 {
-  font-size: clamp(29px, 6.1vw, 68px); font-weight: 700; letter-spacing: -.032em;
+  font-size: clamp(27px, 5.2vw, 58px); font-weight: 700; letter-spacing: -.032em;
   max-width: 17ch; margin: 0 0 22px; color: #fff;
   overflow-wrap: break-word;
 }

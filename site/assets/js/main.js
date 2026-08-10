@@ -280,7 +280,35 @@ function renderChrome() {
 
 /* ---------- home page ---------------------------------------------------- */
 
+/* The header wordmark is deliberately small, so the hero carries the name at
+   display size. Its own gradient id and light palette keep it legible on the
+   navy photograph — the header mark's navy-to-magenta ramp would disappear. */
+const HERO_MARK_SVG = `
+<svg class="hero-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="bm-hero" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#cfe3fb"/><stop offset=".5" stop-color="#9fc6f4"/><stop offset="1" stop-color="#ff5f93"/>
+    </linearGradient>
+  </defs>
+  <rect x="1.6" y="1.6" width="36.8" height="36.8" rx="10.5" stroke="url(#bm-hero)" stroke-width="2.4"/>
+  <circle cx="13.4" cy="20" r="3.5" fill="url(#bm-hero)"/>
+  <path d="M18.6 20h8.2" stroke="url(#bm-hero)" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="28.4" cy="20" r="2.1" fill="url(#bm-hero)"/>
+  <path d="M13.4 13.2c4.6-3.4 9.6-1.6 11.6 2.4M13.4 26.8c4.6 3.4 9.6 1.6 11.6-2.4"
+        stroke="url(#bm-hero)" stroke-width="2.1" stroke-linecap="round" opacity=".55"/>
+</svg>`;
+
 function renderHome() {
+  const brand = $("#hero-brand");
+  if (brand) {
+    brand.innerHTML = `
+      ${HERO_MARK_SVG}
+      <span class="hero-brand-text">
+        <span class="hero-brand-name">${esc(SITE.labName)}</span>
+        <span class="hero-brand-sub">${esc(SITE.parent.split("—")[0].trim())} · ${esc(SITE.university)}</span>
+      </span>`;
+  }
+
   const research = $("#research-grid");
   if (research) {
     research.innerHTML = RESEARCH.map((r, i) => `
@@ -425,7 +453,7 @@ function renderTeam() {
   }
 
   const groups = [
-    ["fellows", "Senior Research Fellows"],
+    ["fellows", "Research Fellows"],
     ["postdocs", "Postdoctoral Researchers"],
     ["phd", "PhD Students"],
     ["alumni", "Alumni"]

@@ -204,7 +204,7 @@ const PEOPLE = {
         "conf/IEEEwisa/LinMWY25"          // zeroth-order optimisation survey
       ],
       photo: null,
-      role: "Senior Research Fellow",
+      role: "Research Fellow",
       bio:
         "Liting joins the group from computer vision, where he is known for the LaSOT tracking benchmark and the SwinTrack and LoRAT trackers. He now applies that background in large-scale modelling and evaluation to the testing of conversational LLM agents and to hallucination detection in retrieval-augmented systems.",
       interests: ["LLM agent testing", "Hallucination detection", "Visual object tracking", "Representation learning"],
