@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{lab}} — Software systems we can trust</title>
+<meta name="description" content="Research group of Prof. Lionel C. Briand at Lero, the Research Ireland Centre for Software, University of Limerick. AI for software engineering, and software engineering for AI-enabled systems.">
+<link rel="icon" href="assets/img/brand/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" id="site-header"></header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-media">
+      <img src="assets/img/photos/ul-living-bridge.jpg" alt="" width="1800" height="1198" fetchpriority="high">
+    </div>
+    <div class="wrap hero-inner">
+      <p class="hero-kicker">Lero · University of Limerick</p>
+      <h1>Software systems we can trust</h1>
+      <p class="hero-lead">
+        We work on two halves of the same problem: using artificial intelligence to
+        automate software engineering, and using software engineering to make
+        AI-enabled systems dependable enough to rely on.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="publications.html">Read our work</a>
+        <a class="btn btn-ghost" href="join.html">Join the group</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section">
+    <div class="wrap two-col">
+      <div>
+        <p class="eyebrow">About the group</p>
+        <p class="statement">
+          Software runs everything. The hard question is no longer whether it works,
+          but whether we can <em>show</em> that it does.
+        </p>
+      </div>
+      <div class="prose">
+        <p>
+          The <span data-site="labName"></span> is the research group of
+          <strong>Prof. Lionel C. Briand</strong> at
+          <a href="https://lero.ie/" target="_blank" rel="noopener">Lero, the Research Ireland Centre for Software</a>,
+          in the Department of Computer Science and Information Systems at the
+          <a href="https://www.ul.ie/" target="_blank" rel="noopener">University of Limerick</a>.
+        </p>
+        <p>
+          Our goal is to develop <strong>automated means of ensuring that software systems — including
+          those built on AI — are reliable, secure and safe</strong>. That covers automated testing and
+          analysis, fault localisation and repair, runtime monitoring, and the evaluation of the AI
+          systems now being used to write software.
+        </p>
+        <p>
+          We care about solutions that survive contact with practice. Most of our projects begin with a
+          problem brought by an industrial partner and are evaluated in that setting, so scalability and
+          integration cost are treated as research constraints rather than as future work.
+        </p>
+        <p>
+          The group works closely with the
+          <a href="https://sites.google.com/view/nanda-lab/" target="_blank" rel="noopener">Nanda Lab</a>
+          at the University of Ottawa, which Prof. Briand also directs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="section section--tight section--tint">
+    <div class="wrap">
+      <div class="stats" id="stats"></div>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH ============ -->
+  <section class="section" id="research">
+    <div class="wrap">
+      <p class="eyebrow">What we work on</p>
+      <h2 class="section-title">Research directions</h2>
+      <p class="section-lead">
+        Four strands, closely connected: each one tends to produce the problems the others end up solving.
+      </p>
+      <div class="card-grid card-grid--2" id="research-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ NEWS ============ -->
+  <section class="section section--tint">
+    <div class="wrap two-col">
+      <div>
+        <p class="eyebrow">Recent</p>
+        <h2 class="section-title" style="font-size:32px">News</h2>
+        <p style="color:var(--muted); font-size:16px; margin:0">
+          A fuller record is on the <a href="publications.html">publications page</a>.
+        </p>
+      </div>
+      <ul class="news" id="news-list"></ul>
+    </div>
+  </section>
+
+  <!-- ============ PEOPLE PREVIEW ============ -->
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Who we are</p>
+      <h2 class="section-title">The group</h2>
+      <p class="section-lead">
+        A small team of researchers working across testing, program analysis, machine learning and
+        empirical software engineering.
+      </p>
+      <div class="people-grid" id="people-preview"></div>
+      <p style="margin-top:32px">
+        <a class="btn btn-solid" href="team.html">Full team &amp; profiles</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ RECENT PUBLICATIONS ============ -->
+  <section class="section section--tint">
+    <div class="wrap">
+      <p class="eyebrow">Selected</p>
+      <h2 class="section-title">Latest publications</h2>
+      <ul class="publist" id="recent-pubs"></ul>
+      <p style="margin-top:28px">
+        <a class="btn btn-solid" href="publications.html">All publications</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ NAME NOTE (mirrors the Nanda Lab name note) ============ -->
+  <section class="section section--tight">
+    <div class="wrap wrap-narrow" style="text-align:center">
+      <p style="font-size:16.5px; color:var(--muted); margin:0">
+        <span data-site="labNameNote"></span>
+        Our sister laboratory in Ottawa is named <em>Nanda</em> — “a quest for knowledge” in the
+        Algonquin language.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/publications.generated.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

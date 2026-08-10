@@ -1,0 +1,23 @@
+# ---------------------------------------------------------------------------
+# GitHub Pages needs a public repository on the free plan, so anything that is
+# internal to the group must stay out of version control here. These files are
+# review material, not part of the site — they remain on disk, untracked.
+#
+#   README-CN.md   internal review notes and the pre-publication checklist
+#   research/      source list, fact-check table, open questions
+#
+# If they are ever worth versioning, put them in a separate private repository
+# rather than removing these lines.
+# ---------------------------------------------------------------------------
+README-CN.md
+research/
+
+# Build output — regenerate with: python3 build/make-single-file.py
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
