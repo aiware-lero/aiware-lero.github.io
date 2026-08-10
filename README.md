@@ -67,6 +67,7 @@ organisations — are all counted from this data at page load. None are typed in
 ## Other scripts
 
 ```bash
+python3 build/sync-titles.py        # write SITE.labName into each page's <title>
 python3 build/check-links.py        # verify every external link still resolves
 python3 build/make-avatar.py IN OUT --head-top Y --chin Y --face-x X
 python3 build/make-single-file.py   # bundle the whole site into one HTML file
@@ -80,6 +81,11 @@ image's own corners.
 `make-single-file.py` writes `dist/aiware-lab.html`, the entire site inlined
 into a single self-contained file — useful for sending to someone who should
 not need a web server.
+
+`sync-titles.py` exists because `main.js` sets the document title at runtime,
+which is enough for a reader but not for search engines or link unfurlers —
+they read the raw HTML and never run the script. Run it after changing
+`SITE.labName` or `SITE.tagline`; it is idempotent.
 
 ## Deployment
 

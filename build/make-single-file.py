@@ -81,6 +81,10 @@ def main() -> None:
     head = read(SITE / "index.html")
     desc = re.search(r'<meta name="description" content="([^"]*)"', head)
 
+    # Title comes from data.js so a rename does not have to be repeated here.
+    title = re.search(r"<title>(.*?)</title>", head, re.S)
+    title = title.group(1) if title else "Group website"
+
     sections = []
     for name in PAGES:
         body = extract_main(read(SITE / f"{name}.html"))
@@ -92,7 +96,7 @@ def main() -> None:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AIware Lab — Software systems we can trust</title>
+<title>{title}</title>
 <meta name="description" content="{desc.group(1) if desc else ''}">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="{data_uri('assets/img/brand/favicon.svg')}" type="image/svg+xml">
