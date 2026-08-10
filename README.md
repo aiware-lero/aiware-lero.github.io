@@ -64,6 +64,25 @@ Two rules are applied at generation time:
 The figures on the home page — researchers, papers, co-authors, partner
 organisations — are all counted from this data at page load. None are typed in.
 
+## Editing safely
+
+The site renders from `data.js` in the browser, so a syntax error there blanks
+every page. `.github/workflows/pages.yml` runs `build/validate-data.js` before
+publishing: it checks that the file parses, that every person has a name and a
+role, that referenced photo files exist, that links are URLs, and that news
+dates and publication entries are well formed. A push that fails the check is
+not deployed, and the job says what is wrong.
+
+Run it locally before pushing if you like:
+
+```bash
+node build/validate-data.js
+```
+
+Content can be edited straight from the GitHub web editor — open
+`site/assets/js/data.js`, edit, commit. The check runs on the commit, so a
+mistake stops at CI instead of reaching the site.
+
 ## Other scripts
 
 ```bash
