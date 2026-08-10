@@ -448,13 +448,13 @@ const PARTNERS = {
   industry: [
     {
       name: "Genesys",
-      note: "Joint work on testing conversational LLM agents and on hallucination detection in retrieval-augmented generation.",
+      note: "Joint papers with researchers at Genesys Cloud Ireland on testing conversational LLM agents and on hallucination detection in retrieval-augmented generation.",
       evidence: "co-authorship with Emir Muñoz and David-Paul Niland (Genesys Cloud, Ireland) on two 2026 papers",
       url: "https://www.genesys.com/"
     },
     {
       name: "Huawei",
-      note: "Joint work on LLM-based unit test generation for Java.",
+      note: "Joint papers with researchers at Huawei's Software Engineering Application Technology Lab on LLM-based unit test generation for Java.",
       evidence: "co-authorship with Kui Liu and Zhaoqiang Guo (Software Engineering Application Technology Lab) on four papers",
       url: null
     }

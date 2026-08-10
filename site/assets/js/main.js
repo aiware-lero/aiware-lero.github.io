@@ -326,7 +326,7 @@ function renderHome() {
         firstYear ? `peer-reviewed papers by members since ${firstYear}`
                   : "peer-reviewed papers by members"],
       [coauthors, "co-authors worldwide"],
-      [PARTNERS.academic.length + PARTNERS.industry.length, "partner organisations"]
+      [PARTNERS.academic.length + PARTNERS.industry.length, "collaborating organisations"]
     ];
     stats.innerHTML = items.map(([n, l]) =>
       `<div class="stat"><div class="stat-num">${n}</div><div class="stat-label">${esc(l)}</div></div>`
