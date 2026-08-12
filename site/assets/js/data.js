@@ -148,8 +148,7 @@ const PEOPLE = {
         scholar: "https://scholar.google.com/citations?user=_4RYAuUAAAAJ",
         dblp: "https://dblp.org/pid/254/6098",
         lero: "https://lero.ie/people/qinghua-xu/",
-        linkedin: "https://www.linkedin.com/in/qinghua-xu-4145b525b/",
-        simula: "https://www.simula.no/people/qinghua"
+        linkedin: "https://www.linkedin.com/in/qinghua-xu-4145b525b/"
       }
     },
     {
@@ -203,7 +202,7 @@ const PEOPLE = {
       excludeDblp: [
         "conf/IEEEwisa/LinMWY25"          // zeroth-order optimisation survey
       ],
-      photo: null,
+      photo: "liting-lin.jpg",
       role: "Research Fellow",
       bio:
         "Liting joins the group from computer vision, where he is known for the LaSOT tracking benchmark and the SwinTrack and LoRAT trackers. He now applies that background in large-scale modelling and evaluation to the testing of conversational LLM agents and to hallucination detection in retrieval-augmented systems.",
