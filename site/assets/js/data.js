@@ -12,7 +12,7 @@ const SITE = {
   labShort: "AIware",
   labNameNote:
     "AIware — software with AI at its core rather than bolted on. Building such systems, and establishing when they can be trusted, is the work of this group.",
-  tagline: "Software systems we can trust",
+  tagline: "Software and AI We Can Trust",
   parent: "Lero — the Research Ireland Centre for Software",
   university: "University of Limerick",
   department: "Department of Computer Science and Information Systems",

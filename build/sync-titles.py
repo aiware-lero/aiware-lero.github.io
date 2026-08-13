@@ -55,6 +55,12 @@ def main():
                          count=1, flags=re.S)
         if not n:
             sys.exit(f"no <title> in {path.name}")
+
+        # The home page headline is the tagline too; keep the one copy of the
+        # wording in data.js rather than in two files that can disagree.
+        if page == "index":
+            new = re.sub(r"<h1>.*?</h1>", f"<h1>{values['tagline']}</h1>", new,
+                         count=1, flags=re.S)
         if new != html:
             path.write_text(new, encoding="utf-8")
             changed += 1
