@@ -336,8 +336,8 @@ const PUBLICATIONS_MANUAL = [
   },
   {
     title: "BeSpec: Behavior-Level Specification Alignment for Code Generation",
-    authors: ["Qinghua Xu", "Guancheng Wang", "Boxi Yu", "Lionel Briand"],
-    venue: "arXiv preprint", year: 2026, status: "preprint", group: true,
+    authors: ["Qinghua Xu", "Guancheng Wang", "Boxi Yu", "Lionel C. Briand"],
+    venue: "ICSE 2027", year: 2027, status: "conference", group: true,
     topics: ["code-generation"],
     links: { arxiv: "https://arxiv.org/abs/2607.02949" }
   },
@@ -420,6 +420,10 @@ const TOPIC_LABELS = {
 /* Acceptances and publications only — no preprint announcements. See the
    PUBLICATION POLICY note at the top of this file.                          */
 const NEWS = [
+  {
+    date: "2026-10",
+    text: "<em>BeSpec: Behavior-Level Specification Alignment for Code Generation</em> accepted at ICSE 2027."
+  },
   {
     date: "2026-07",
     text: "<em>LLM meets ML: Data-efficient Anomaly Detection on Unstable Logs</em> published in ACM Transactions on Software Engineering and Methodology."
