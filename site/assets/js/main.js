@@ -82,6 +82,10 @@ function collectMembers() {
 
 const isMember = (author) => ROSTER.some((name) => sameName(author, name));
 
+/* Sources spell members differently ("Lionel Briand" / "Lionel C. Briand");
+   always display the spelling used on the Team page. */
+const memberName = (author) => ROSTER.find((name) => sameName(author, name)) || author;
+
 /* ---------- monogram avatars --------------------------------------------- */
 
 const AVATAR_GRADIENTS = [
@@ -478,7 +482,7 @@ function renderTeam() {
 
 function authorsHTML(list) {
   return list
-    .map((a) => (isMember(a) ? `<span class="me">${esc(a)}</span>` : esc(a)))
+    .map((a) => (isMember(a) ? `<span class="me">${esc(memberName(a))}</span>` : esc(a)))
     .join(", ");
 }
 
@@ -525,27 +529,35 @@ function renderPublications() {
       `<button class="chip" data-scope="${v}" aria-pressed="${v === state.scope}">${l}</button>`
     ).join("");
 
-  const topics = ["all", ...new Set(LISTED().flatMap((p) => p.topics || []))];
-  topicBar.innerHTML =
-    `<span class="filter-label">Topic</span>` +
-    topics.map((t) =>
-      `<button class="chip" data-topic="${t}" aria-pressed="${t === state.topic}">${
-        t === "all" ? "All" : esc(TOPIC_LABELS[t] || t)
-      }</button>`
-    ).join("");
+  // Topic and member chips offer only what the current scope contains, so no
+  // chip leads to an empty list. Rebuilt whenever the scope changes; a choice
+  // that no longer exists in the new scope falls back to "all".
+  function renderChips() {
+    const inScope = LISTED().filter((p) => state.scope === "all" || p.group);
 
-  // One chip per member who appears on at least one listed paper.
-  if (memberBar) {
-    const roster = [...PEOPLE.pi, ...PEOPLE.fellows, ...PEOPLE.postdocs, ...PEOPLE.phd];
-    const withWork = roster.filter((p) =>
-      LISTED().some((pub) => pub.authors.some((a) => sameName(a, p.name)))
-    );
-    memberBar.innerHTML =
-      `<span class="filter-label">Member</span>` +
-      `<button class="chip" data-member="all" aria-pressed="true">Everyone</button>` +
-      withWork
-        .map((p) => `<button class="chip" data-member="${esc(p.name)}" aria-pressed="false">${esc(p.name)}</button>`)
-        .join("");
+    const topics = ["all", ...new Set(inScope.flatMap((p) => p.topics || []))];
+    if (!topics.includes(state.topic)) state.topic = "all";
+    topicBar.innerHTML =
+      `<span class="filter-label">Topic</span>` +
+      topics.map((t) =>
+        `<button class="chip" data-topic="${t}" aria-pressed="${t === state.topic}">${
+          t === "all" ? "All" : esc(TOPIC_LABELS[t] || t)
+        }</button>`
+      ).join("");
+
+    if (memberBar) {
+      const roster = [...PEOPLE.pi, ...PEOPLE.fellows, ...PEOPLE.postdocs, ...PEOPLE.phd];
+      const withWork = roster.filter((p) =>
+        inScope.some((pub) => pub.authors.some((a) => sameName(a, p.name)))
+      );
+      if (state.member !== "all" && !withWork.some((p) => p.name === state.member)) state.member = "all";
+      memberBar.innerHTML =
+        `<span class="filter-label">Member</span>` +
+        `<button class="chip" data-member="all" aria-pressed="${state.member === "all"}">Everyone</button>` +
+        withWork
+          .map((p) => `<button class="chip" data-member="${esc(p.name)}" aria-pressed="${p.name === state.member}">${esc(p.name)}</button>`)
+          .join("");
+    }
   }
 
   function apply() {
@@ -581,6 +593,7 @@ function renderPublications() {
     if (chip.dataset.scope) {
       state.scope = chip.dataset.scope;
       $$("[data-scope]").forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.scope === state.scope)));
+      renderChips();
     }
     if (chip.dataset.member) {
       state.member = chip.dataset.member;
@@ -593,6 +606,7 @@ function renderPublications() {
     apply();
   });
 
+  renderChips();
   apply();
 }
 
